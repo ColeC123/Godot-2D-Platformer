@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxitu71ehs5j4"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_g08de"]
+[ext_resource type="Texture2D" uid="uid://nqnieuqev65x" path="res://monochrome_tilemap_transparent.png" id="2_licik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6nml"]
+atlas = ExtResource("2_licik")
+region = Rect2(0, 204, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kby6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6nml")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hs7n6"]
+radius = 3.0
+height = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g08de")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_kby6q")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hs7n6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_speed = 1.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
