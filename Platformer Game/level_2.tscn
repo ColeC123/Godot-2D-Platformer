@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1b85riu1sdos"]
+[gd_scene load_steps=10 format=3 uid="uid://c1b85riu1sdos"]
 
 [ext_resource type="Texture2D" uid="uid://nqnieuqev65x" path="res://monochrome_tilemap_transparent.png" id="1_jpdlo"]
 [ext_resource type="Script" path="res://level.gd" id="1_ntko2"]
 [ext_resource type="PackedScene" uid="uid://bxitu71ehs5j4" path="res://player.tscn" id="2_aojlw"]
 [ext_resource type="PackedScene" uid="uid://cc1g53k0sf16v" path="res://door.tscn" id="3_wk0b7"]
 [ext_resource type="PackedScene" uid="uid://bckc4yyr6y0ea" path="res://gem.tscn" id="5_div84"]
+[ext_resource type="PackedScene" uid="uid://ixgpebnqs3b1" path="res://hud.tscn" id="6_6qbg0"]
+[ext_resource type="AudioStream" uid="uid://8digwkpweye5" path="res://annoyingwaltz.wav" id="7_asgt1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_po8f8"]
 resource_name = "Tilemap"
@@ -1226,22 +1228,6 @@ tile_set = SubResource("TileSet_j35he")
 format = 2
 layer_0/tile_data = PackedInt32Array(1572878, 524288, 4, 1572879, 524288, 4, 1572880, 524288, 4, 1572881, 524288, 4, 1572882, 524288, 4, 1572883, 524288, 4, 1572884, 524288, 4, 1572885, 524288, 4, 1572886, 524288, 4, 1572887, 524288, 4, 1572888, 524288, 4, 1572889, 524288, 4, 1572890, 524288, 4, 1572891, 524288, 4, 1572892, 524288, 4, 1572893, 524288, 4, 1572894, 524288, 4, 1572895, 524288, 4, 1572896, 524288, 4, 1572897, 524288, 4, 1572898, 524288, 4, 1572899, 524288, 4, 1572900, 524288, 4, 1572901, 524288, 4, 1638437, 524288, 4, 1638436, 524288, 4, 1638435, 524288, 4, 1638434, 524288, 4, 1638433, 524288, 4, 1638432, 524288, 4, 1638431, 524288, 4, 1638430, 524288, 4, 1638429, 524288, 4, 1638428, 524288, 4, 1638427, 524288, 4, 1638426, 524288, 4, 1638425, 524288, 4, 1638424, 524288, 4, 1638423, 524288, 4, 1638422, 524288, 4, 1638421, 524288, 4, 1638420, 524288, 4, 1638419, 524288, 4, 1638418, 524288, 4, 1638417, 524288, 4, 1638416, 524288, 4, 1638415, 524288, 4, 1638414, 524288, 4, 1638413, 524288, 4, 1572877, 524288, 4, 1507341, 524288, 4, 1441805, 524288, 4, 1441804, 524288, 4, 1376268, 524288, 4, 1310732, 524288, 4, 1245196, 524288, 4, 1245197, 524288, 4, 1310733, 524288, 4, 1376269, 524288, 4, 1507340, 524288, 4, 1572876, 524288, 4, 1638412, 524288, 4, 1703966, 524288, 4, 1703967, 524288, 4, 1703968, 524288, 4, 1703969, 524288, 4, 1703970, 524288, 4, 1703971, 524288, 4, 1638438, 524288, 4, 1638439, 524288, 4, 1572903, 524288, 4, 1507367, 524288, 4, 1441831, 524288, 4, 1376295, 524288, 4, 1310759, 524288, 4, 1245223, 524288, 4, 1245222, 524288, 4, 1310758, 524288, 4, 1376294, 524288, 4, 1441830, 524288, 4, 1507366, 524288, 4, 1572902, 524288, 4)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="CurrentLevel" type="Label" parent="HUD"]
-offset_left = 12.0
-offset_top = 11.0
-offset_right = 66.0
-offset_bottom = 34.0
-text = "Level 2"
-
-[node name="GemsLabel" type="Label" parent="HUD"]
-offset_left = 10.0
-offset_top = 39.0
-offset_right = 72.0
-offset_bottom = 62.0
-text = "Gems: 0"
-
 [node name="Player" parent="." instance=ExtResource("2_aojlw")]
 position = Vector2(269, 380)
 
@@ -1257,6 +1243,18 @@ offset_bottom = -8.0
 text = "Level 2
 "
 
+[node name="Door2" parent="." instance=ExtResource("3_wk0b7")]
+position = Vector2(536, 376)
+level = "res://level_3.tscn"
+
+[node name="Label" type="Label" parent="Door2"]
+offset_left = -23.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = -8.0
+text = "Level 3
+"
+
 [node name="Gems" type="Node" parent="."]
 
 [node name="Gem" parent="Gems" instance=ExtResource("5_div84")]
@@ -1268,4 +1266,12 @@ position = Vector2(477, 374)
 [node name="Gem3" parent="Gems" instance=ExtResource("5_div84")]
 position = Vector2(575, 372)
 
+[node name="HUD" parent="." instance=ExtResource("6_6qbg0")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_asgt1")
+volume_db = -7.4
+autoplay = true
+
 [connection signal="player_entered" from="Door" to="." method="_on_door_player_entered"]
+[connection signal="player_entered" from="Door2" to="." method="_on_door_player_entered"]

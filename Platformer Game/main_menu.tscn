@@ -21,11 +21,34 @@ size_flags_horizontal = 4
 theme_type_variation = &"HeaderLarge"
 text = "2D Platformer"
 
-[node name="StartButton" type="Button" parent="."]
-offset_left = 528.0
-offset_top = 369.0
-offset_right = 574.0
-offset_bottom = 400.0
+[node name="Label" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 464.0
+offset_right = 620.0
+offset_bottom = 513.0
+text = "Sprites by Kenney
+Music by Ted Kerr
+"
+horizontal_alignment = 1
+
+[node name="Options" type="VFlowContainer" parent="."]
+offset_left = 487.0
+offset_top = 338.0
+offset_right = 629.0
+offset_bottom = 457.0
+
+[node name="StartButton" type="Button" parent="Options"]
+layout_mode = 2
 text = "Start"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="FullscreenButton" type="Button" parent="Options"]
+layout_mode = 2
+text = "Toggle Fullscreen"
+
+[node name="QuitButton" type="Button" parent="Options"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Options/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Options/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Options/QuitButton" to="." method="_on_quit_button_pressed"]
