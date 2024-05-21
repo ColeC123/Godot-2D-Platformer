@@ -1,22 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://bckc4yyr6y0ea"]
 
 [ext_resource type="Script" path="res://gem.gd" id="1_k6vvc"]
+[ext_resource type="Texture2D" uid="uid://23lw7q7180mr" path="res://gems_db16.png" id="2_mg6bo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq30n"]
-size = Vector2(10, 14)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4gl2l"]
-load_path = "res://.godot/imported/monochrome_tilemap_transparent.png-41031fa250e250a6da73ef9456d8ce51.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ttkvw"]
-atlas = SubResource("CompressedTexture2D_4gl2l")
-region = Rect2(34, 85, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1kk4"]
+atlas = ExtResource("2_mg6bo")
+region = Rect2(5, 37, 21, 21)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vyr65"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ttkvw")
+"texture": SubResource("AtlasTexture_o1kk4")
 }],
 "loop": true,
 "name": &"default",

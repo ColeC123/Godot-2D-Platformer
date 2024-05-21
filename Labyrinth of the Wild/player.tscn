@@ -53,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o081g")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump1",
 "speed": 5.0
 }, {
@@ -61,23 +61,23 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pj2yi")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump2",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1opvd")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump3",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qomgm")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump4",
 "speed": 5.0
 }, {
