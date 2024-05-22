@@ -23,3 +23,23 @@ func _input(event):
 		get_tree().reload_current_scene.call_deferred()
 		Global.gems_collected = 0
 		set_gems_label()
+
+
+func _on_trap_body_entered(body):
+	if body.name == "Player":
+		$TileMap.set_layer_enabled(1, false)
+
+
+func _on_trap_body_exited(body):
+	if body.name == "Player":
+		$TileMap.set_layer_enabled(1, true)
+
+
+func _on_swim_up_body_entered(body):
+	if body.name == "Player":
+		$Player.is_swimming.emit()
+
+
+func _on_swim_up_body_exited(body):
+	if body.name == "Player":
+		$Player.is_swimming.emit()

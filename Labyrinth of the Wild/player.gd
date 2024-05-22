@@ -9,10 +9,14 @@ var was_on_floor
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal is_swimming
+
+var swimming = false
+
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not swimming:
 		velocity.y += gravity * delta
 
 	# Handle jump.
@@ -51,5 +55,12 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("jump4")
 		
 	was_on_floor = is_on_floor()
+	
+	if swimming == true:
+		velocity.y += -100 * delta
 
 	move_and_slide()
+
+
+func _on_is_swimming():
+	swimming = !swimming

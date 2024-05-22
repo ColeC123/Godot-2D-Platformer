@@ -127,3 +127,5 @@ drag_vertical_enabled = true
 [node name="jumpSfx" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_e87mw")
 volume_db = -9.37
+
+[connection signal="is_swimming" from="." to="." method="_on_is_swimming"]
