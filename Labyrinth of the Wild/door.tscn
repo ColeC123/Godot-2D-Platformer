@@ -1,21 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://cc1g53k0sf16v"]
 
 [ext_resource type="Script" path="res://door.gd" id="1_gi7h4"]
+[ext_resource type="Texture2D" uid="uid://b3swi7c4aenmv" path="res://New Piskel (1) (1).png" id="2_3tnss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et3oi"]
-size = Vector2(14, 15)
+size = Vector2(36, 36)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4gl2l"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mya0y"]
-atlas = SubResource("CompressedTexture2D_4gl2l")
-region = Rect2(323, 34, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7pkh"]
+atlas = ExtResource("2_3tnss")
+region = Rect2(9, 11, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_20whj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mya0y")
+"texture": SubResource("AtlasTexture_x7pkh")
 }],
 "loop": true,
 "name": &"default",
@@ -26,7 +25,6 @@ animations = [{
 script = ExtResource("1_gi7h4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_et3oi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

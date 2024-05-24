@@ -43,3 +43,5 @@ func _on_swim_up_body_entered(body):
 func _on_swim_up_body_exited(body):
 	if body.name == "Player":
 		$Player.is_swimming.emit()
+
+

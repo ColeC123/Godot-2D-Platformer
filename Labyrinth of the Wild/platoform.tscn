@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjoanf264sgby"]
+
+[ext_resource type="Texture2D" uid="uid://dv4rdkpsdcx21" path="res://sheet.png" id="2_bjtc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dio4e"]
+size = Vector2(75, 16)
+
+[node name="Platoform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_dio4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-19.1875, 8)
+scale = Vector2(0.964743, 1.019)
+texture = ExtResource("2_bjtc7")
+region_enabled = true
+region_rect = Rect2(115, 0, 39, 16)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(38.7383, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("2_bjtc7")
+region_enabled = true
+region_rect = Rect2(115, 0, 39, 16)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.731
+autostart = true
