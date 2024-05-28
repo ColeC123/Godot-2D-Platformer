@@ -2,6 +2,8 @@ extends Node2D
 
 @export var level_num = 0
 
+var door_level
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD.level(level_num)
@@ -16,7 +18,8 @@ func set_gems_label():
 	$HUD.gems(Global.gems_collected)
 
 func _on_door_player_entered(level):
-	get_tree().change_scene_to_file(level)
+	door_level = level
+	call_deferred("change_level")
 	
 func _input(event):
 	if event.is_action_pressed("reset_level"):
@@ -44,4 +47,5 @@ func _on_swim_up_body_exited(body):
 	if body.name == "Player":
 		$Player.is_swimming.emit()
 
-
+func change_level():
+	get_tree().change_scene_to_file(door_level)
