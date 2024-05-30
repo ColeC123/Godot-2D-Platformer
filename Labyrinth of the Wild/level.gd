@@ -10,6 +10,14 @@ func _ready():
 	set_gems_label()
 	for gem in $Gems.get_children():
 		gem.gem_collected.connect(_on_gem_collected)
+	if level_num == 2:
+		$platform1/AnimationPlayer.play("back_and_forth")
+		$platform2/AnimationPlayer.play("back_and_forth")
+		$platform3/AnimationPlayer.play("back_and_forth")
+	if level_num == 3:
+		$CampfireLight/CampfireSprite.play("default")
+		$platform1/AnimationPlayer.play("slant_up_and_down")
+		$platform1/CampfireLight2/CampfireSprite.play("default")
 
 func _on_gem_collected():
 	set_gems_label()
@@ -49,3 +57,13 @@ func _on_swim_up_body_exited(body):
 
 func change_level():
 	get_tree().change_scene_to_file(door_level)
+
+
+func _on_speeder_body_entered(body):
+	if body.name == "Player":
+		$Player.is_speeding.emit($Speeder/CollisionShape2D.position.y - 21)
+
+
+func _on_speeder_body_exited(body):
+	if body.name == "Player":
+		$Player.is_speeding.emit(0)

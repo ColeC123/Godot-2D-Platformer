@@ -10,17 +10,22 @@ var was_on_floor
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal is_swimming
+signal is_speeding(y_val)
 
 var swimming = false
+var speeding = false
 
 
 func _physics_process(delta):
+	
+	if speeding:
+		velocity.y = 0
 	# Add the gravity.
-	if not is_on_floor() and not swimming:
+	if not is_on_floor() and !swimming and !speeding:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !speeding:
 		velocity.y = JUMP_VELOCITY
 		$jumpSfx.play()
 		
@@ -58,9 +63,18 @@ func _physics_process(delta):
 	
 	if swimming == true:
 		velocity.y += -100 * delta
+		
+	if speeding == true:
+		velocity.x += 10000 * delta
 
 	move_and_slide()
 
 
 func _on_is_swimming():
 	swimming = !swimming
+
+
+func _on_is_speeding(y_val):
+	speeding = !speeding
+	if speeding:
+		position.y = y_val
