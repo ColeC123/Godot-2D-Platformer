@@ -11,15 +11,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal is_swimming
 signal is_speeding(y_val)
+signal lock_position
 
 var swimming = false
 var speeding = false
+var pos_locked = false
 
 
 func _physics_process(delta):
 	
 	if speeding:
-		velocity.y = 0
+		velocity.y = 10
 	# Add the gravity.
 	if not is_on_floor() and !swimming and !speeding:
 		velocity.y += gravity * delta
@@ -65,9 +67,10 @@ func _physics_process(delta):
 		velocity.y += -100 * delta
 		
 	if speeding == true:
-		velocity.x += 10000 * delta
+		velocity.x += 20000 * delta
 
-	move_and_slide()
+	if !pos_locked:
+		move_and_slide()
 
 
 func _on_is_swimming():
@@ -76,5 +79,7 @@ func _on_is_swimming():
 
 func _on_is_speeding(y_val):
 	speeding = !speeding
-	if speeding:
-		position.y = y_val
+
+
+func _on_lock_position():
+	pos_locked = true

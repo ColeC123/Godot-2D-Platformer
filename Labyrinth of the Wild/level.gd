@@ -18,6 +18,17 @@ func _ready():
 		$CampfireLight/CampfireSprite.play("default")
 		$platform1/AnimationPlayer.play("slant_up_and_down")
 		$platform1/CampfireLight2/CampfireSprite.play("default")
+		$TorchLight2/TorchSprite.play("torch_flicker")
+		$TorchLight/TorchSprite.play("torch_flicker")
+		$CampfireLight2/CampfireSprite.play("default")
+		$TorchLight3/TorchSprite.play("torch_flicker")
+		$TorchLight4/TorchSprite.play("torch_flicker")
+		$TorchLight5/TorchSprite.play("torch_flicker")
+		$platform2/AnimationPlayer.play("back_and_forth")
+		$platform3/AnimationPlayer.play("back_and_forth")
+		$platform4/AnimationPlayer.play("back_and_forth")
+		$platform5/AnimationPlayer.play("back_and_forth")
+		$CampfireLight3/CampfireSprite.play("default")
 
 func _on_gem_collected():
 	set_gems_label()
@@ -67,3 +78,20 @@ func _on_speeder_body_entered(body):
 func _on_speeder_body_exited(body):
 	if body.name == "Player":
 		$Player.is_speeding.emit(0)
+
+
+func _on_chest_body_entered(body):
+	if body.name == "Player":
+		$Player.lock_position.emit()
+		$Chest/AnimatedSprite2D.play("open")
+		$Chest/Timer.start()
+
+
+func _on_timer_timeout():
+	$TextureRect2.visible = true
+	$TextureRect2/AnimationPlayer.play("fade_to_white")
+	$TextureRect2/Timer2.start()
+
+
+func _on_timer_2_timeout():	
+	get_tree().change_scene_to_file("res://credits.tscn")

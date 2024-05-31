@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7hata6e6o7ch"
+path="res://.godot/imported/kingdom of a million elephants under a white parasol.ogg-9cf5ab77de5d2864022b5e716591cb38.oggvorbisstr"
+
+[deps]
+
+source_file="res://kingdom of a million elephants under a white parasol.ogg"
+dest_files=["res://.godot/imported/kingdom of a million elephants under a white parasol.ogg-9cf5ab77de5d2864022b5e716591cb38.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,309 @@
+[gd_scene load_steps=14 format=3 uid="uid://c7fc1pmwhcot7"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_12duk"]
+[ext_resource type="Texture2D" uid="uid://02lqowfu34k4" path="res://BrickHouse.png" id="1_tpecm"]
+[ext_resource type="Texture2D" uid="uid://dv4rdkpsdcx21" path="res://sheet.png" id="2_brkmh"]
+[ext_resource type="Texture2D" uid="uid://23lw7q7180mr" path="res://gems_db16.png" id="3_kt408"]
+[ext_resource type="Texture2D" uid="uid://dr77cr5c8mbyp" path="res://spooky_trees.png" id="4_42twu"]
+[ext_resource type="Texture2D" uid="uid://bybgv4e8gn30" path="res://different_trees_enviromental.png" id="5_alsx7"]
+[ext_resource type="Texture2D" uid="uid://dgrpa3plfefej" path="res://asiatemplebackground.png" id="6_we5y6"]
+[ext_resource type="Texture2D" uid="uid://cm1gnkm40r288" path="res://campfire_spritesheet.png" id="7_b0q05"]
+[ext_resource type="Texture2D" uid="uid://bnc378tjrm22k" path="res://Torch_Sheet.png" id="8_7dkxf"]
+[ext_resource type="Texture2D" uid="uid://b3swi7c4aenmv" path="res://New Piskel (1) (1).png" id="10_qg8hm"]
+[ext_resource type="AudioStream" uid="uid://b7ym2yjhput2x" path="res://Loop_The_Old_Tower_Inn.wav" id="11_d427k"]
+
+[sub_resource type="Animation" id="Animation_jv4ry"]
+resource_name = "scroll"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, -4250)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ki56x"]
+_data = {
+"scroll": SubResource("Animation_jv4ry")
+}
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_12duk")
+
+[node name="LabelCollection" type="Node2D" parent="."]
+position = Vector2(0, 100)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="LabelCollection"]
+offset_top = -2.0
+offset_right = 1153.0
+offset_bottom = 653.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Game Asset Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="LabelCollection"]
+offset_left = 210.0
+offset_top = 114.0
+offset_right = 903.0
+offset_bottom = 176.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "All Assets from OpenGameArt.Org"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="LabelCollection"]
+offset_left = 48.0
+offset_top = 253.0
+offset_right = 548.0
+offset_bottom = 315.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "GrumpyDiamond"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label3"]
+position = Vector2(863, 31)
+scale = Vector2(2.36719, 2.0625)
+texture = ExtResource("1_tpecm")
+
+[node name="Label4" type="Label" parent="LabelCollection"]
+offset_left = 35.0
+offset_top = 494.0
+offset_right = 535.0
+offset_bottom = 556.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Buch"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label4"]
+position = Vector2(792, 41)
+scale = Vector2(1.59903, 1.42188)
+texture = ExtResource("2_brkmh")
+
+[node name="Label5" type="Label" parent="LabelCollection"]
+offset_left = 43.0
+offset_top = 800.0
+offset_right = 543.0
+offset_bottom = 862.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Clint Bellanger"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label5"]
+position = Vector2(835, 19)
+scale = Vector2(3.03, 2.63)
+texture = ExtResource("3_kt408")
+region_enabled = true
+region_rect = Rect2(0, 26.119, 64, 69.881)
+
+[node name="Label6" type="Label" parent="LabelCollection"]
+offset_left = 47.0
+offset_top = 1108.0
+offset_right = 547.0
+offset_bottom = 1170.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "ETTiNGRiNDER"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label6"]
+position = Vector2(804, -15)
+scale = Vector2(2.2005, 2.09866)
+texture = ExtResource("4_42twu")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label7" type="Label" parent="LabelCollection"]
+offset_left = 22.0
+offset_top = 1481.0
+offset_right = 522.0
+offset_bottom = 1543.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Anxious Avocado"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label7"]
+position = Vector2(800, 217)
+scale = Vector2(1.63507, 1.62566)
+texture = ExtResource("5_alsx7")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label8" type="Label" parent="LabelCollection"]
+offset_left = 46.0
+offset_top = 2155.0
+offset_right = 546.0
+offset_bottom = 2217.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "crazyduckgames"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label8"]
+position = Vector2(829, 143)
+scale = Vector2(0.803, 0.605)
+texture = ExtResource("6_we5y6")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label9" type="Label" parent="LabelCollection"]
+offset_left = 7.0
+offset_top = 2698.0
+offset_right = 507.0
+offset_bottom = 2760.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "callfreak"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label9"]
+position = Vector2(775, 25)
+scale = Vector2(2.654, 2)
+texture = ExtResource("7_b0q05")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label10" type="Label" parent="LabelCollection"]
+offset_left = 3.0
+offset_top = 2926.0
+offset_right = 503.0
+offset_bottom = 2988.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "XLIVE99"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label10"]
+position = Vector2(793, 37)
+scale = Vector2(5.308, 4)
+texture = ExtResource("8_7dkxf")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label11" type="Label" parent="LabelCollection"]
+offset_left = 11.0
+offset_top = 3273.0
+offset_right = 511.0
+offset_bottom = 3328.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "djantosh10"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelCollection/Label11"]
+position = Vector2(793, 37)
+scale = Vector2(5.308, 4)
+texture = ExtResource("10_qg8hm")
+region_rect = Rect2(0, 26.119, 199.928, 112.248)
+
+[node name="Label12" type="Label" parent="LabelCollection"]
+offset_left = 16.0
+offset_top = 3537.0
+offset_right = 516.0
+offset_bottom = 3592.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "RandomMind"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="LabelCollection/Label12"]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 1.0
+offset_right = 982.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 40
+text = "Level 1 / Credits 
+Music"
+
+[node name="Label13" type="Label" parent="LabelCollection"]
+offset_left = 19.0
+offset_top = 3700.0
+offset_right = 519.0
+offset_bottom = 3755.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Spring Spring"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="LabelCollection/Label13"]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 1.0
+offset_right = 918.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Level 2 Music"
+
+[node name="Label14" type="Label" parent="LabelCollection"]
+offset_left = 39.0
+offset_top = 3861.0
+offset_right = 539.0
+offset_bottom = 3916.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "You're Perfect Studio"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="LabelCollection/Label14"]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 1.0
+offset_right = 918.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Level 3 Music"
+
+[node name="Label15" type="Label" parent="LabelCollection"]
+offset_left = 37.0
+offset_top = 4022.0
+offset_right = 537.0
+offset_bottom = 4077.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "dklon"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="LabelCollection/Label15"]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 1.0
+offset_right = 918.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Jump Sound"
+
+[node name="Label16" type="Label" parent="LabelCollection"]
+offset_left = 40.0
+offset_top = 4168.0
+offset_right = 540.0
+offset_bottom = 4223.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Aeva"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="LabelCollection/Label16"]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 1.0
+offset_right = 918.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Gem Sound"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LabelCollection"]
+libraries = {
+"": SubResource("AnimationLibrary_ki56x")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d427k")
+autoplay = true
